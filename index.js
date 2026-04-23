@@ -49,3 +49,50 @@ document.querySelectorAll(".section, .card").forEach(el => {
   el.style.transition = "all 0.6s ease";
   observer.observe(el);
 });
+
+
+/* CONTACT FORM */
+const contactForm = document.querySelector("#contact-form");
+const formStatus = document.querySelector(".form-status");
+
+if (contactForm && formStatus) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    const formData = new FormData(contactForm);
+    const endpoint = contactForm.action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/");
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+    formStatus.className = "form-status";
+    formStatus.textContent = "";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || result.success === false || result.success === "false") {
+        throw new Error(result.message || "The message could not be sent.");
+      }
+
+      contactForm.reset();
+      formStatus.classList.add("success");
+      formStatus.textContent = "Message sent. Thanks for reaching out.";
+    } catch (error) {
+      formStatus.classList.add("error");
+      formStatus.textContent = "Message did not send. Email me directly at dkhans2001@gmail.com.";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+}

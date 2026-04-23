@@ -432,6 +432,10 @@ section {
   resize: none;
 }
 
+.hidden-field {
+  display: none;
+}
+
 /* BUTTON (Green theme + readable text) */
 .contact-bottom button {
   width: 100%;
@@ -451,6 +455,27 @@ section {
 .contact-bottom button:hover {
   transform: translateY(-1px);
   filter: brightness(1.05);
+}
+
+.contact-bottom button:disabled {
+  cursor: wait;
+  filter: saturate(0.75);
+  opacity: 0.8;
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.form-status.success {
+  color: var(--accent);
+}
+
+.form-status.error {
+  color: #f87171;
 }
 
 /* Reduced motion support */
