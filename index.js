@@ -15,6 +15,8 @@ const speed = 40;
 
 function typeEffect() {
   const element = document.querySelector(".hero p");
+  if (!element) return;
+
   if (i < text.length) {
     element.innerHTML += text.charAt(i);
     i++;
@@ -23,7 +25,10 @@ function typeEffect() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".hero p").innerHTML = "";
+  const element = document.querySelector(".hero p");
+  if (!element) return;
+
+  element.innerHTML = "";
   typeEffect();
 });
 
