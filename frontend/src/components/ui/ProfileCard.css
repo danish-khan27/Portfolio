@@ -1,0 +1,29 @@
+.profile-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.profile-card-image img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.profile-card-body h3 {
+  margin: 0;
+  color: var(--text);
+}
+
+.profile-card-role {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

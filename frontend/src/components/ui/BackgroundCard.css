@@ -1,0 +1,21 @@
+.background-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.background-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    var(--accent-weak),
+    transparent 40%
+  );
+  pointer-events: none;
+}
