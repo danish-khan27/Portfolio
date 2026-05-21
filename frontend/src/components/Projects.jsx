@@ -55,7 +55,7 @@ const projects = [
     title: 'Notes App',
     description:
       'A full-stack productivity notes app with user accounts where you can create, edit, search, and star notes, move them to a recoverable trash, and export any note as a .txt file.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Python'],
     links: [
       { label: 'Code', href: 'https://github.com/danish-khan27/Notes-App' },
     ],
